@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tituloPagina} + ' - Biblioteca Digital'">Biblioteca Digital</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.1/css/bootstrap.min.css}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.2/css/all.min.css}">
+    
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .book-card {
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <i class="fas fa-book"></i> Biblioteca Digital
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/libros}">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/quejas/formulario}">Quejas y Sugerencias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/acerca}">Acerca de</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div th:insert="~{::content}"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-book"></i> Biblioteca Digital</h5>
+                    <p>Tu portal hacia el conocimiento y la imaginación.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2024 Biblioteca Digital. Todos los derechos reservados.</p>
+                    <p>Contacto: info@biblioteca.edu</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & jQuery -->
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.1/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
